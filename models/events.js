@@ -38,6 +38,14 @@ var allEvents = [
     image: 'http://i.imgur.com/02KT9.gif',
     location: 'Yale Farm',
     attending: ['homer.simpson@yale.edu'],
+  },
+  {
+    id: 5,
+    title: 'Christmas @ SOM',
+    date:   new Date(2016, 11, 2, 19, 0, 0),
+    image: 'http://i.imgur.com/02KT9.gif',
+    location: 'Yale Farm',
+    attending: ['homer.simpson@yale.edu', 'Santa.Claus@norhtpole.net'],
   }
 ];
 
