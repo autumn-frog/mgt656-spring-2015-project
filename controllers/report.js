@@ -18,5 +18,5 @@ function showReport (request, response) {
 
 
 module.exports = {
-  'showReport': showReport
+  showReport : showReport
 };
