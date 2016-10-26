@@ -26,7 +26,7 @@ function index (request, response) {
   }
   
   
-  response.render('index.html', contextData);
+  response.render('ProjectReport.html', contextData);
 }
 
 
