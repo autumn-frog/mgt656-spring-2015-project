@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block mainContent %}
+  <div>
+    <h1 id='title'> {{event.title}} </h1>
+    <span id='date'> {{event.date}} </span>
+    <span id='location'> {{event.location}} </span>
+    <img id='image' src='{{event.image}}'>
+    <ul id='attendees'>
+      {% for attendee in event.attending %}
+      <li>
+        {{attendee}}
+      </li>
+      {% endfor %}  
+    </ul>
+  </div>
+  
+{% endblock %}
+
+ <!-- Look at me customize the footer. The time is now {{time}}. -->
+

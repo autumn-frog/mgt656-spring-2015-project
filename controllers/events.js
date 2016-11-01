@@ -115,8 +115,12 @@ function eventDetail (request, response) {
   var ev = events.getById(parseInt(request.params.id));
   if (ev === null) {
     response.status(404).send('No such event');
+  
   }
-  response.render('event-detail.html', {event: ev});
+  var contextData = {
+    'event': ev,
+  };
+  response.render('event-detail.html', contextData);
 }
 
 function rsvp (request, response){
