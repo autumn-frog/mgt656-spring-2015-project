@@ -24,5 +24,7 @@ app.get('/events/new', eventControllers.newEvent);
 app.post('/events/new', eventControllers.saveEvent);
 app.get('/report', reportControllers.showReport);
 
+app.get(/^\/events\/[0-9]+$/, eventControllers.eventDetail);
+
 
 module.exports = app;
