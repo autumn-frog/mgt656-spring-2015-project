@@ -6,25 +6,15 @@
     <span id='date'> {{event.date}} </span>
     <span id='location'> {{event.location}} </span>
     <img id='image' src='{{event.image}}'>
-    
+    <ul id='attendees'>
+      {% for attendee in event.attending %}
+      <li>
+        {{attendee}}
+      </li>
+      {% endfor %}  
+    </ul>
   </div>
   
-  
-I can view the event title.
-Grading note: It should be in a h1 element with the id title.
-I can view the event date.
-Grading note: It should be in a span tag with the id date.
-I can view the event location.
-Grading note: It should be in a span tag with the id location.
-I can see the event's image on the page.
-Grading note: It has the id image.
-I can see a unordered list of the event's attendees.
-Grading note: It has the id attendees.
-  
-  <div>
-    <p> Hi {{event.id}}</p>
-  </div>
-
 {% endblock %}
 
  <!-- Look at me customize the footer. The time is now {{time}}. -->
