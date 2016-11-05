@@ -96,7 +96,11 @@ if (img === null) {
 }
   
   if (contextData.errors.length === 0) {
+    // get next id 
+    
+    
     var newEvent = {
+      id: events.all.length + 1,
       title: request.body.title,
       location: request.body.location,
       image: request.body.image,
@@ -104,7 +108,7 @@ if (img === null) {
       attending: []
     };
     events.all.push(newEvent);
-    response.redirect('/events');
+    response.redirect('/events/' + newEvent.id);
   }else{
     response.render('create-event.html', contextData);
     
