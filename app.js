@@ -23,6 +23,7 @@ app.get('/events', eventControllers.listEvents);
 app.get('/events/new', eventControllers.newEvent);
 app.post('/events/new', eventControllers.saveEvent);
 app.get('/report', reportControllers.showReport);
+app.get('/report/:id', reportControllers.showReport);
 app.get('/events/:id', eventControllers.eventDetail);
 app.get('/api/events', eventControllers.api);
 

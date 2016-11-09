@@ -12,10 +12,12 @@ function showReport (request, response) {
     'time': currentTime
   };
   
-  response.render('ProjectReport.html', contextData);
+  if (request.params.id != undefined) {
+    response.render('report' + (request.params.id) +  '.html', contextData);
+  } else {
+    response.render('selectreport.html', contextData);
+  }
 }
-
-
 
 module.exports = {
   showReport : showReport
