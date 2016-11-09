@@ -1,0 +1,222 @@
+   
+   The site, on all pages
+     ✓ should be using Bootstrap CSS
+     ✓ should have a header element
+     ✓ should have a footer element
+     ✓ should have a link to /about in the footer
+     ✓ should have a link to / in the footer
+   
+   The home page
+     ✓ should be up and running
+     ✓ should have your team logo
+     ✓ should have a list of events
+     ✓ should have a time tag for each event
+     ✓ should have a link for each event
+     ✓ should not show events that are over
+     ✓ should have a link to create a new event
+   
+   The API
+     1) should return an array of upcoming events in JSON format
+     2) should allow for searching events by title
+   
+   The about page
+     3) should have people on it
+     4) should have a picture of each person
+   
+   The event detail pages
+     ✓ should exist for each event and should have title, image, etc
+     5) should allow Yale users to RSVP
+     6) should reject RSVPs from non-Yale addresses
+   
+   The new event creation page
+     ✓ should exist
+     ✓ should have a form that can be posted back
+     ✓ should have appropriate form fields and labels
+     ✓ should use select inputs for year, month, day, hour and minute form elements.
+     ✓ should have the appropriate options for select elements
+   
+   The form for creating new events
+     ✓ should display errors to the user when the year is not an integer
+     ✓ should display errors to the user when the year is more than 2016
+     ✓ should display errors to the user when the year is less than 2015
+     ✓ should display errors to the user when the month is not an integer
+     ✓ should display errors to the user when the month is more than 11
+     ✓ should display errors to the user when the month is less than 0
+     ✓ should display errors to the user when the day is not an integer
+     ✓ should display errors to the user when the day is more than 31
+     ✓ should display errors to the user when the day is less than 1
+     ✓ should display errors to the user when the hour is not an integer
+     ✓ should display errors to the user when the hour is more than 23
+     ✓ should display errors to the user when the hour is less than 0
+     ✓ should display errors to the user when the image is not a gif or png
+     ✓ should display errors to the user when the image is not a URL
+     ✓ should display errors to the user when the location is too long
+     ✓ should display errors to the user when the location is empty
+     ✓ should display errors to the user when the title is too long
+     ✓ should display errors to the user when the title is empty
+     ✓ should redirect the user to the event detail page if the form is valid
+
+   Executed 43 tests in 7 suites in 2s 122ms
+       37 passes
+       6 failed
+   
+   6) The event detail pages should reject RSVPs from non-Yale addresses
+   
+       No INPUT matching 'email'
+       
+       at Browser.fill (node_modules/zombie/lib/index.js:838:7)
+           at /source/index.js:722:4
+           
+           721 |     const field = this.field(selector);
+           722 |     assert(field && (field.tagName === 'TEXTAREA' || (field.tagName === 'INPUT')), `No INPUT matching '${selector}'`);
+           723 |     assert(!field.disabled, 'This INPUT field is disabled');
+           
+       at test/test.js:263:10
+       
+       262 |       browser
+       263 |         .fill('email', email)
+       264 |         .pressButton('Submit', function(){
+       
+       at EventLoop.done (node_modules/zombie/lib/eventloop.js:589:11)
+           at /source/eventloop.js:445:8
+           
+           444 |       try {
+           445 |         callback(error);
+           446 |       } catch (error) {
+           
+       at Immediate._onImmediate (node_modules/zombie/lib/eventloop.js:688:71)
+           at /source/eventloop.js:557:17
+           
+           556 |           else
+           557 |             this.emit('idle');
+           558 |         }
+           
+   
+   5) The event detail pages should allow Yale users to RSVP
+   
+       No INPUT matching 'email'
+       
+       at Browser.fill (node_modules/zombie/lib/index.js:838:7)
+           at /source/index.js:722:4
+           
+           721 |     const field = this.field(selector);
+           722 |     assert(field && (field.tagName === 'TEXTAREA' || (field.tagName === 'INPUT')), `No INPUT matching '${selector}'`);
+           723 |     assert(!field.disabled, 'This INPUT field is disabled');
+           
+       at test/test.js:249:10
+       
+       248 |       browser
+       249 |         .fill('email', email)
+       250 |         .pressButton('Submit', function(){
+       
+       at EventLoop.done (node_modules/zombie/lib/eventloop.js:589:11)
+           at /source/eventloop.js:445:8
+           
+           444 |       try {
+           445 |         callback(error);
+           446 |       } catch (error) {
+           
+       at Immediate._onImmediate (node_modules/zombie/lib/eventloop.js:688:71)
+           at /source/eventloop.js:557:17
+           
+           556 |           else
+           557 |             this.emit('idle');
+           558 |         }
+           
+   
+   4) The about page should have a picture of each person
+   
+       Found 0 people and 3 images.
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Context.<anonymous> (test/test.js:207:12)
+       
+       206 |     var numImages = this.browser.queryAll('img[id$="-headshot"]').length;
+       207 |     assert.ok(numPeople === numImages && numPeople > 0, 'Found ' + numPeople + ' people and ' + numImages + ' images.');
+       208 |   });
+       
+   
+   3) The about page should have people on it
+   
+       Expected spans with name-based ids on page at /about
+       
+       at Context.<anonymous> (test/test.js:201:12)
+       
+       200 |   it('should have people on it', function(){
+       201 |     assert.ok(this.browser.query('span[id$="-name"]'), 'Expected spans with name-based ids on page at ' + this.browser.location.pathname);
+       202 |   });
+       
+   
+   2) The API should allow for searching events by title
+   
+       API not found at /api/events
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:173:14)
+       
+       172 |     request(url, function (error, response, body) {
+       173 |       assert.ok(response.statusCode !== 404, 'API not found at /api/events');
+       174 |       var data = JSON.parse(body);
+       
+       at Request.self.callback (node_modules/request/request.js:187:22)
+       
+       186 |       self._callbackCalled = true
+       187 |       self._callback.apply(self, arguments)
+       188 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1048:10)
+       
+       1047 |     }
+       1048 |     self.emit('complete', response, response.body)
+       1049 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:969:12)
+       
+       968 |     responseContent.on('end', function (chunk) {
+       969 |       self.emit('end', chunk)
+       970 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   1) The API should return an array of upcoming events in JSON format
+   
+       API not found at /api/events
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:161:14)
+       
+       160 |       assert.ok(body !== 'null', 'JSON data has no contents.');
+       161 |       assert.ok(response.statusCode !== 404, 'API not found at /api/events');
+       162 |       var data = JSON.parse(body);
+       
+       at Request.self.callback (node_modules/request/request.js:187:22)
+       
+       186 |       self._callbackCalled = true
+       187 |       self._callback.apply(self, arguments)
+       188 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1048:10)
+       
+       1047 |     }
+       1048 |     self.emit('complete', response, response.body)
+       1049 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:969:12)
+       
+       968 |     responseContent.on('end', function (chunk) {
+       969 |       self.emit('end', chunk)
+       970 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
