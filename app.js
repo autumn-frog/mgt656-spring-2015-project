@@ -26,6 +26,8 @@ app.get('/report', reportControllers.showReport);
 app.get('/report/:id', reportControllers.showReport);
 app.get('/events/:id', eventControllers.eventDetail);
 app.get('/api/events', eventControllers.api);
+app.post('/events/:id', eventControllers.rsvp);
+
 
 app.get(/^\/events\/[0-9]+$/, eventControllers.eventDetail);
 
